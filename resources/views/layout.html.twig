@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{% block title %}Welcome!{% endblock %}</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="/app.css" rel="stylesheet">
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	{% block stylesheets %}{% endblock %}
+</head>
+<body>
+{#<div class="top-line">
+    <div class="row align-middle">
+        <div class="small-12 medium-4">
+            <div>
+                {% if app.user %}
+                    <a class="personal-link" href="/profile">{{ app.user.username }}</a>
+                    <a class="logout" href="/logout">Выход</a>
+                {% elseif not app.user %}
+                    <a class="login" href="/login">Войти</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="small-12 medium-4">
+            <div class="phone">
+                <a href="#0">+7 (800) 988-88-00</a>
+            </div>
+        </div>
+        <div class="small-12 medium-3">
+            <div class="feedback-link">
+                <a href="#0">Заказать звонок</a>
+            </div>
+        </div>
+        <div class="small-12 medium-1">
+            <div class="search-block">
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>#}
+
+<div class="container">
+	{% block body %}{% endblock %}
+</div>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>
+
