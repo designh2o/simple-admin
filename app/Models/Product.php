@@ -14,13 +14,24 @@ class Product extends Model
 	protected $tableName = 'products';
 
 	protected $fields = [
-		'id', 'name', 'is_active'
+		'id', 'name', 'is_active', 'section_id'
 	];
 
-	protected $relations = [
+	protected $casts = [
+		'is_active' => 'boolean',
+	];
+
+	protected $belongsTo = [
 		'section' => [
 			'model' => Section::class,
 			'condition' => 'products.section_id = sections.id',
+		]
+	];
+
+	protected $hasMany = [
+		'reviews' => [
+			'model' => Review::class,
+			'foreign_key' => 'product_id',
 		]
 	];
 }

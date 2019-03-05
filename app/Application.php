@@ -13,10 +13,14 @@ namespace App;
 use Doctrine\DBAL\Connection;
 use Twig\Environment;
 
+/**
+ * Main class application
+ * Class Application
+ * @package App
+ */
 class Application
 {
 	private static $instance;
-	private $container;
 	private $twig;
 	private $doctrine;
 

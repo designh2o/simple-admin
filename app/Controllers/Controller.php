@@ -14,7 +14,6 @@ use App\Contracts\RequestInterface;
 
 abstract class Controller
 {
-	const PAGE_LIMIT = 10;
 	private $app;
 	private $twig;
 	protected $request;
@@ -26,45 +25,25 @@ abstract class Controller
 		$this->request = $request;
 	}
 
+	/**
+	 * Render twig template
+	 * @param $template
+	 * @param array $variables
+	 * @throws \Twig_Error_Loader
+	 * @throws \Twig_Error_Runtime
+	 * @throws \Twig_Error_Syntax
+	 */
 	public function render($template, $variables = [])
 	{
 		print $this->twig->render($template, $variables);
 	}
 
+	/**
+	 * output json
+	 * @param $values
+	 */
 	public function json($values)
 	{
 		print json_encode($values);
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getCurrentPage()
-	{
-		$page = (int)$this->request->page;
-		if($page > 0){
-			return $page;
-		}
-		return 1;
-	}
-
-	public function getLimit()
-	{
-		$limit = (int)$this->request->count;
-		if($limit > 0){
-			return $limit;
-		}
-		return static::PAGE_LIMIT;
-	}
-
-	public function getOffset()
-	{
-		$page = $this->getCurrentPage();
-		$limit = $this->getLimit();
-		$offset = 0;
-		if ($page != 0 && $page != 1) {
-			$offset = ($page - 1) * $limit;
-		}
-		return $offset;
 	}
 }

@@ -8,6 +8,8 @@
         }
     ],
     "require": {
+        "php": ">=7.0.0",
+        "ext-json": "*",
         "doctrine/dbal": "^2.9",
         "vlucas/phpdotenv": "^3.3",
         "twig/twig": "^2.0"
